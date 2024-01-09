@@ -1,0 +1,61 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Контейнер */
+.container{
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 40px 15px;
+}
+
+/* Главный заголовок */
+.main-title{
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+/* Список */
+.list{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+/* Карточка */
+.list__item{
+  background-color: rgb(35, 35, 35);
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+}
+
+/* Выделение карточки */
+.list__item_light{
+  background-color: rgb(72, 72, 72);
+  transform: scale(1.1);
+}
+
+/* Заголовок списка */
+.list__title{
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: rgb(96, 96, 96);
+}
+
+/* Значение списка */
+.list__value{
+  font-size: 46px;
+  margin-bottom: 20px;
+  color: rgb(207, 207, 207);
+}
