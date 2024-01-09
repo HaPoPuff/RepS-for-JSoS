@@ -1,0 +1,85 @@
+*{margin: 0; padding: 0;}
+
+body {
+  background-color: rgb(153, 93, 233);
+  color: white;
+}
+
+h1 {
+  width: 1400px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px auto;
+}
+
+.main-driver {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: rgba(255, 140, 0, 0.76);
+  box-shadow: 3px 3px 3px rgb(94, 94, 94);
+}
+
+.main-driver p:nth-child(1) {
+  text-align: right;
+  font-weight: 700;
+}
+
+.main-driver p:nth-child(2) {
+  text-align: left;
+  font-weight: 300;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.main-driver p:nth-child(3) {
+  text-align: left;
+  font-weight: 300;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.main-driver p:nth-child(4) {
+  text-align: left;
+  font-weight: 300;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.main-driver p:nth-child(5) {
+  text-align: left;
+  font-weight: 300;
+  font-size: 20px;
+  margin: 0 0 5px 0;
+}
+
+.main-total {
+  width: 100%;
+  max-width: 1350px;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px rgb(94, 94, 94);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: rgb(0, 153, 255);
+}
+
+.main-total h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.main-total p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}

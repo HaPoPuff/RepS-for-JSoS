@@ -1,0 +1,37 @@
+body{
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Класс для заголовка h1 */
+.main-title{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+/* Класс для списка ul */
+.product-list{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+/* Класс для одного продукта li*/
+.product-item{
+  background-color: rgb(222, 224, 172);
+  padding: 14px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* Класс для суммарной стоимость */
+.total-price{
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 30px;
+}
