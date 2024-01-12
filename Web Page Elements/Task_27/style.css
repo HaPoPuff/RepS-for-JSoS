@@ -1,0 +1,181 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(17, 19, 20);
+  color: white;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+/* Блок для добавления ученика школы */
+.add-box{
+  display: flex;
+  gap: 5px;
+  height: 40px;
+}
+
+/* Текстовое поле для имени */
+.add-box__input{
+  border: none;
+  border-radius: 0;
+  color: white;
+  padding: 10px 15px;
+  background-color: rgba(255,255,255,.2);
+  transition: background-color .3s;
+  min-width: 300px;
+}
+
+.add-box__input:focus{
+  outline: none;
+  background-color: rgba(255,255,255,.3);
+}
+
+/* Кнопка добавления */
+.add-box__btn{
+  border: none;
+  border-radius: 0;
+  color: white;
+  padding: 10px 15px;
+  background-color: gray;
+  transition: opacity .3s, transform .2s;
+  cursor: pointer;
+  outline: none;
+}
+
+.add-box__btn:hover{
+  opacity: .8;
+}
+
+.add-box__btn:active{
+  transform: scale(0.95);
+}
+
+.add-box__btn:focus-visible{
+  outline: 2px solid rgba(255,255,255,.6);
+}
+
+/* Кнопки для факультетов */
+.add-box__btn:nth-child(2){
+  background-color: rgb(180, 73, 7);
+}
+.add-box__btn:nth-child(3){
+  background-color: rgb(0, 81, 36);
+}
+.add-box__btn:nth-child(4){
+  background-color: rgb(0, 55, 81);
+}
+.add-box__btn:nth-child(5){
+  background-color: rgb(184, 144, 0);
+}
+
+/* Блок факультетов */
+.faculty-box{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  height: calc(100vh - 70px);
+}
+
+/* Список факультета */
+.list {
+  margin: 0;
+  list-style-type: none;
+  padding: 10px;
+  background-color: rgba(197, 226, 242, 0.1);
+  background-position: right -70px bottom -70px;
+  background-size: 250px;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Название для факультета */
+.list::after{
+  content: "Факультет";
+  color: white;
+  position: absolute;
+  padding: 5px 10px;
+  background-color: rgba(200, 231, 231,0.3);
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  opacity: .5;
+}
+
+/* Список учеников Гриффиндор */
+.list_grif{
+  background-image: url(img/grif.png);
+}
+.list_grif::after{
+  content: "Гриффиндор";
+}
+
+/* Список учеников Слизерин */
+.list_sliz{
+  background-image: url(img/sliz.png);
+}
+.list_sliz::after{
+  content: "Слизерин";
+}
+
+/* Список учеников Когтевран */
+.list_kog{
+  background-image: url(img/kog.webp);
+}
+.list_kog::after{
+  content: "Когтевран";
+}
+
+/* Список учеников Пуффендуй */
+.list_puf{
+  background-image: url(img/puf.png);
+}
+.list_puf::after{
+  content: "Пуффендуй";
+}
+
+/* Элемент списка ученика */
+.student-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(79, 83, 83, 0.9);
+  margin-bottom: 10px;
+}
+
+.student-item__actions{
+  display: flex;
+  gap: 5px;
+}
+
+/* Кнока изменения / удаления ученика */
+.student-item__btn{
+  border: none;
+  border-radius: 0;
+  color: white;
+  font-size: 12px;
+  padding: 5px;
+  background-color: rgba(255,255,255,.2);
+  transition: opacity .3s, transform .2s;
+  cursor: pointer;
+  outline: none;
+}
+
+.student-item__btn:hover{
+  opacity: .8;
+}
+
+.student-item__btn:active{
+  transform: scale(0.95);
+}
+
+.student-item__btn:focus-visible{
+  outline: 2px solid rgba(255,255,255,.6);
+}
