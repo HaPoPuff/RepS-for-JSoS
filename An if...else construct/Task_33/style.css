@@ -1,0 +1,106 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+}
+
+/* Главный заголовок */
+.main-title{
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Блок добавления */
+.add-box{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Текстовое поле */
+.add-box__inp{
+  border: 2px solid gray;
+  padding: 10px 15px;
+  background-color: white;
+  border-radius: 6px;
+  min-width: 300px;
+}
+ 
+.add-box__inp:focus{
+  border-color: blue;
+}
+
+/* Кнопка добавления */
+.add-box__btn{
+  border: none; 
+  border-radius: 0;
+  color: white;
+  border-radius: 6px;
+  padding: 12px 18px;
+  font-size: 16px;
+  background-color: blue;
+  transition: background-color .3s;
+  cursor: pointer;
+  outline: none;
+}
+
+.add-box__btn:hover{
+  background-color: rgb(52, 52, 255);
+}
+
+.add-box__btn:active{
+  background-color: rgb(27, 27, 199);
+}
+
+.add-box__btn:focus-visible{
+  outline-offset: 2px;
+  outline: 2px solid blue;
+}
+
+/* Обертка для групп */
+.wrap-box{
+  display: flex;
+  gap: 20px;
+}
+
+/* Группа */
+.group-box{
+  width: 350px;
+  padding: 10px;
+  color: white;
+  border-radius: 6px;
+}
+
+/* Зеленый цвет группы */
+.group-box_green{
+  background-color: rgb(0, 120, 20);
+}
+
+/* Голубой цвет группы */
+.group-box_blue{
+  background-color: rgb(45, 81, 201);
+}
+
+/* Оранжевый цвет группы */
+.group-box_orange{
+  background-color: rgb(206, 155, 14);
+}
+
+/* Заголовок группы */
+.group-box__title{
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+}
+
+/* Карточка собаки */
+.dog-card{
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  margin-bottom: 5px;
+}
