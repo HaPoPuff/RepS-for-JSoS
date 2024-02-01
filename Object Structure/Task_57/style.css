@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  gap: 20px;
+  background-color: rgb(203, 240, 238);
+  padding: 20px;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: white;
+}
+
+li {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+}
+
+.red {
+  color: rgb(195, 0, 0);
+  justify-content: space-between;
+}
+
+.violet {
+  color: rgb(158, 0, 158);
+}

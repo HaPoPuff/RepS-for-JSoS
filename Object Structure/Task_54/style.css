@@ -1,0 +1,56 @@
+body {
+  padding: 40px;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(196, 196, 196);
+}
+
+.open-btn{
+  border: none;
+  outline: none;
+  background-color: blueviolet;
+  color: white;
+  border-radius: 10px;
+  padding: 14px 24px;
+  cursor: pointer;
+  transition: background-color .3s;
+  margin-bottom: 10px;
+}
+
+.open-btn:hover{
+  background-color: rgb(163, 83, 237);
+}
+.open-btn:active{
+  background-color: rgb(115, 41, 184);
+}
+
+.menu {
+  margin: 0;
+  list-style-type: none;
+  padding: 0;
+  background-color: white;
+  max-width: 280px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+}
+
+.menu.open {
+  display: block;
+}
+
+
+.menu__link{
+  display: block;
+  text-decoration: none;
+  padding: 15px 30px;
+  color: rgb(29, 29, 29);
+  transition: background-color .3s;
+}
+
+.menu__link:hover{
+  background-color: rgb(221, 221, 221);
+}
+.menu__link:active{
+  background-color: rgb(199, 199, 199);
+}
