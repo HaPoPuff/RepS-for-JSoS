@@ -1,5 +1,7 @@
 let index = 0
-let totalPrice = 0
+let itemNameArr = []
+let itemCountArr = []
+let itemPriceArr = []
 
 // Создание текстового поля 
 function getInput(placeholder, type, className) {
@@ -26,56 +28,68 @@ function getDivBox(className) {
 }
 
 // Создание товаров
-function getGroupBox(nameItem, countItem, priceItem) {
-  totalPrice = totalPrice + (priceItem * countItem)
-
+function getGroupBox(index, nameItem, countItem, priceItem) {
+  let numeric = document.createElement('span')
+  let upperName = document.createElement('p')
+  let downName = document.createElement('p')
   let box1 = getDivBox('item-group')
+  let upperCount = document.createElement('p')
+  let downCount = document.createElement('p')
   let box2 = getDivBox('item-group')
+  let upperPrice = document.createElement('p')
+  let downPrice = document.createElement('p')
   let box3 = getDivBox('item-group')
+  let upperPriceTotal = document.createElement('p')
+  let downPriceTotal = document.createElement('p')
   let box4 = getDivBox('item-group')
+  let editBtn = getBtn('Изменить', 'edit-btn')
+  let removeBtn = getBtn('Удалить', 'remove-btn')
   let allBox = getDivBox('item-all__group')
 
-  let upperName = document.createElement('p')
+  numeric.textContent = `${index + 1}`
   upperName.textContent = 'Название'
-  upperName.classList.add('item-upper__text')
-
-  let downName = document.createElement('p')
   downName.textContent = nameItem
-  downName.classList.add('item-down__text')
-
-  box1.append(upperName, downName)
-
-  let upperCount = document.createElement('p')
   upperCount.textContent = 'Кол-во'
-  upperCount.classList.add('item-upper__text')
-
-  let downCount = document.createElement('p')
   downCount.textContent = countItem
-  downCount.classList.add('item-down__text')
-
-  box2.append(upperCount, downCount)
-
-  let upperPrice = document.createElement('p')
   upperPrice.textContent = 'Цена'
-  upperPrice.classList.add('item-upper__text')
-
-  let downPrice = document.createElement('p')
   downPrice.textContent = `${priceItem} руб`
-  downPrice.classList.add('item-down__text')
-
-  box3.append(upperPrice, downPrice)
-
-  let upperPriceTotal = document.createElement('p')
   upperPriceTotal.textContent = 'Общая цена'
-  upperPriceTotal.classList.add('item-upper__text')
-
-  let downPriceTotal = document.createElement('p')
   downPriceTotal.textContent = `${priceItem * countItem} руб`
+
+  upperName.classList.add('item-upper__text')
+  downName.classList.add('item-down__text')
+  upperCount.classList.add('item-upper__text')
+  downCount.classList.add('item-down__text')
+  upperPrice.classList.add('item-upper__text')
+  downPrice.classList.add('item-down__text')
+  upperPriceTotal.classList.add('item-upper__text')
   downPriceTotal.classList.add('item-down__text')
 
-  box4.append(upperPriceTotal, downPriceTotal)
+  editBtn.onclick = function () {
+    let editName = prompt(`Изменить имя: ${nameItem}?`)
+    let editCount = prompt(`Изменить кол-во: ${countItem}?`)
+    let editPrice = prompt(`Изменить цену: ${priceItem}?`)
 
-  allBox.append(box1, box2, box3, box4)
+    itemNameArr[index] = editName
+    itemCountArr[index] = editCount
+    itemPriceArr[index] = editPrice
+
+    render(itemNameArr, itemCountArr, itemPriceArr)
+  }
+
+  removeBtn.onclick = function () {
+    itemNameArr.splice(index, 1)
+    itemCountArr.splice(index, 1)
+    itemPriceArr.splice(index, 1)
+
+    render(itemNameArr, itemCountArr, itemPriceArr)
+  }
+
+  box1.append(upperName, downName)
+  box2.append(upperCount, downCount)
+  box3.append(upperPrice, downPrice)
+  box4.append(upperPriceTotal, downPriceTotal)
+  allBox.append(numeric, box1, box2, box3, box4, editBtn, removeBtn)
 
   return allBox
 }
@@ -89,54 +103,53 @@ let nameItemInp = getInput('Название товара', 'text', 'main-input'
 let countItemInp = getInput('Количество', 'number', 'main-input')
 let priceItemInp = getInput('Цена', 'number', 'main-input')
 
-// Добавление товаров
-let itemBox = getDivBox('item-container')
-
 // Кнопка добавления товара
 let addBtn = getBtn('Добавить', 'add-btn')
+
+let itemBox = getDivBox('item-container')
+
 addBtn.onclick = function () {
   let nameItemValue = nameItemInp.value
   let countItemValue = countItemInp.value
   let priceItemValue = priceItemInp.value
 
-  index++
-
-  // Товар
-  let numeric = document.createElement('span')
-  numeric.textContent = `${index}`
-
-  let item = getGroupBox(nameItemValue, countItemValue, priceItemValue)
-
-  let editBtn = getBtn('Изменить', 'edit-btn')
-  let removeBtn = getBtn('Удалить', 'remove-btn')
-
   // Добавление товаров
-  let itemBox = getDivBox('item-container')
-  itemBox.append(numeric, item, editBtn, removeBtn)
+  itemNameArr.push(nameItemValue)
+  itemCountArr.push(countItemValue)
+  itemPriceArr.push(priceItemValue)
 
-  totalSum.textContent = `${totalPrice} руб`
+  render(itemNameArr, itemCountArr, itemPriceArr)
 
-  document.body.append(itemBox, totalBox)
-
-  editBtn.onclick = function () {
-    let editName = prompt(`Изменить имя: ${nameItemValue}?`)
-    let editCount = prompt(`Изменить кол-во: ${countItemValue}?`)
-    let editPrice = prompt(`Изменить цену: ${priceItemValue}?`)
-
-
-  }
-
-  removeBtn.onclick = function () {
-    itemBox.remove()
-    totalPrice = totalPrice - (countItemValue * priceItemValue)
-    totalSum.textContent = `${totalPrice} руб`
-    index--
-  }
+  document.body.append(itemBox)
+  document.body.append(totalBox)
 
   nameItemInp.value = ''
   countItemInp.value = ''
   priceItemInp.value = ''
 }
+
+function render(nameArr, countArr, priceArr) {
+  itemBox.innerHTML = ''
+  let totalPrice = 0
+
+  if (nameArr.length === 0) {
+    let box = getDivBox('list-null')
+    box.textContent = 'Список товаров пуст'
+    itemBox.append(box)
+    return
+  }
+
+  for (let i = 0; i < nameArr.length; i++) {
+    let item = getGroupBox(i, nameArr[i], countArr[i], priceArr[i])
+    itemBox.append(item)
+
+    totalPrice = totalPrice + (countArr[i] * priceArr[i])
+  }
+
+  totalSum.textContent = `${totalPrice} руб`
+}
+
+render(itemNameArr, itemCountArr, itemPriceArr)
 
 // Добавление итогового подсчета
 let totalText = document.createElement('span')
@@ -151,5 +164,6 @@ let inpBox = getDivBox('main-container')
 inpBox.append(nameItemInp, countItemInp, priceItemInp, addBtn)
 
 // Добавление основных элементов в body
-document.body.append(title, inpBox, totalBox)
+document.body.append(title, inpBox, itemBox, totalBox)
+
 
